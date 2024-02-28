@@ -1,0 +1,26 @@
+<%- include("./partials/header.ejs") %>
+
+<section id="mainbody" class="d-flex flex-row">
+    <%- include("./partials/sidebar.ejs") %>
+    <section id="rightmain" class="d-flex flex-row flex-shrink-0 py-3 px-5" style="width: 75%;">   
+        <div id = "container" class="d-flex flex-column p-5 flex-shrink-0 align-content-start" style="width: 100%;">
+            <% if (typeof postList !== "undefined" && postList.length !== 0) { %>
+                <% for (i=0; i<postList.length; i++) { %>
+                    <h1 class ="fw-bold "><a class="postTitle" href="/globs/<%= postList[i][0] %>"><%= postList[i][0] %></a></h1>
+                    <p class="postTime">Last Updated: <%= postList[i][4] %></p>
+                    <p class="postText"><%= postList[i][2] %></p>
+                    <hr class="darkHr">
+                    <% }  %>
+            <% } else {  %>
+                <h1 class="fw-bold ">No post, write something!</h1>
+            <% } %>
+        </div>
+    </section>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</main>
+
+</body>
+
+</html>
